@@ -15,21 +15,29 @@
  * limitations under the License.
  */
 
-package edu.ifrs.vvs;
+package junit;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-/**
- * Unit test for simple App.
- */
+@SuppressWarnings("checkstyle:magicnumber")
 class AppTest {
     /**
-     * Rigorous Test.
+     * Teste Rigoroso.
      */
+
+    private BubbleSort bubbleSort = new BubbleSort();
+
     @Test
     void testApp() {
-        assertEquals(1, 1);
+        assertEquals(1, 1);}
+    void shouldOrderValuesAsExpected() {
+        int[] values = {9, -2, 2, 4, 5, 0, 8};
+        int[] expectedOrderedValues = {-2, 0, 2, 4, 5, 8, 9};
+
+        bubbleSort.sort(values);
+
+        assertArrayEquals(expectedOrderedValues, values);
     }
 }
